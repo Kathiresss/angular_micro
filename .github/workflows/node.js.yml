@@ -30,14 +30,13 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_PACKAGE_SECRET }}
       - name: NPM Build Development
-        run: npm run build
+        run:  ng build --project=shell
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_PACKAGE_SECRET }}
       - name: Deploy to my EC2 instance
         uses: easingthemes/ssh-deploy@v2.1.5
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
-          SOURCE: "dist/appspos-erp-platform/"
+          SOURCE: "dist/shell/"
           REMOTE_HOST: "13.126.196.120"
           REMOTE_USER: "ec2-user"
-          TARGET: "/home/ec2-user/workspace/appspos-erp/${{github.ref_name}}/platform/"
