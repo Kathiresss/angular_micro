@@ -37,7 +37,7 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
-          SOURCE: "dist/appspos-erp-requisition/"
-          REMOTE_HOST: "13.126.196.120"
+          SOURCE: "dist/"
+          REMOTE_HOST: "16.171.226.126"
           REMOTE_USER: "ec2-user"
-          TARGET: "/home/ec2-user/workspace/appspos-erp/${{github.ref_name}}/requisition/"
+          TARGET: "/home/ec2-user/workspace/appspos-erp/${{github.ref_name}}/"
